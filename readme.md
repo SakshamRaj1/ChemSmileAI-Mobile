@@ -67,7 +67,7 @@ ChemSmileAI/
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/sakshamraj1/ChemSmileAI.git
+git clone https://github.com/sakshamraj1/ChemSmileAI-Mobile.git
 cd ChemSmileAI
 npm install
 ```
