@@ -19,7 +19,7 @@
 
 Download the latest Android release directly:
 
-[📥 Download ChemSmileAI APK](https://github.com/<your-username>/<your-repo-name>/releases/latest/download/ChemSmileAI.apk)
+[⬇️ Download ChemSmileAI APK](https://github.com/<your-username>/<your-repo-name>/releases/latest/download/ChemSmileAI.apk)
 
 ---
 
