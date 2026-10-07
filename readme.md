@@ -51,3 +51,74 @@ ChemSmileAI/
 ├── eas.json                     # EAS Cloud build profiles (preview APK, production AAB/IPA)
 ├── package.json                 # Dependency manifest
 └── README.md
+
+
+🚀 Getting Started
+Prerequisites
+Node.js (v18 or LTS recommended)
+
+npm or yarn
+
+Expo Go application on your mobile device
+
+1. Installation
+Clone the repository and install dependencies:
+
+Bash
+git clone [https://github.com/SakshamRaj1/ChemSmileAI.git](https://github.com/SakshamRaj1/ChemSmileAI.git)
+cd ChemSmileAI
+npm install
+2. Local Development
+Start the Metro bundler to run the project in development mode:
+
+Bash
+npx expo start
+Open Expo Go on Android or the default Camera app on iOS.
+
+Scan the QR code displayed in your terminal.
+
+⚙️ Configuration & Architecture Details
+Endpoint Configuration
+The target cheminformatics server URL and intro splash display time are configured at the top of App.js:
+
+JavaScript
+// App.js
+const WEBSITE_URL = '[https://your-production-url.com/](https://your-production-url.com/)';
+const SPLASH_DURATION_MS = 2000;
+Native Download Handling
+Android's default WebView delegates file downloads containing Content-Disposition: attachment to the OS-level DownloadManager. Since the system manager runs outside the WebView sandbox, it lacks active sessions, authentication, and custom tunnel headers, resulting in download failures.
+
+ChemSmileAI Mobile resolves this completely at the client layer:
+
+DOM Prototype Patching: Injects early JavaScript hooks before DOM load to intercept <form> submissions, clicked submit buttons, and <a> clicks.
+
+In-Memory Streaming: Fetches generated molecular payloads directly via the browser context preserving active session headers and converts them to base64.
+
+Native Share Dialog: React Native writes the payload to FileSystem.cacheDirectory and presents the native Android/iOS share and save modal via Sharing.shareAsync.
+
+Adaptive Icon Safe Zone
+Android adaptive icons crop assets to circular or squircle masks with a diameter of ~66% of the full canvas. App-logo.png is placed centered with transparent padding on a #0b0909 background to eliminate border distortion.
+
+📦 Cloud Builds with EAS
+This project is configured for compilation in the cloud without Android Studio or Xcode.
+
+1. Install EAS CLI & Authenticate
+Bash
+npm install -g eas-cli
+eas login
+2. Generate Standalone Android APK (Direct Install)
+Bash
+eas build -p android --profile preview
+Once compilation completes, EAS generates a direct .apk binary link ready for distribution and installation.
+
+3. Generate Production Builds
+Android (AAB for Google Play):
+
+Bash
+eas build -p android --profile production
+iOS (IPA for App Store / TestFlight):
+
+Bash
+eas build -p ios --profile production
+📄 License
+This project is distributed under the terms of the MIT License. See the LICENSE file for more information.
