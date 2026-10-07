@@ -13,13 +13,13 @@
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-lightgrey)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+</div>
+
 ## Download
 
 Download the latest Android release directly:
 
 [📥 Download ChemSmileAI APK](https://github.com/<your-username>/<your-repo-name>/releases/latest/download/ChemSmileAI.apk)
-
-</div>
 
 ---
 
