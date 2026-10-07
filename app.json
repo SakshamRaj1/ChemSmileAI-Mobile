@@ -18,7 +18,11 @@
         "backgroundColor": "#0b0909",
         "foregroundImage": "./assets/App-logo.png"
       },
-      "package": "com.sakshamraj1.ChemSmileAI"
+      "package": "com.sakshamraj1.ChemSmileAI",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "plugins": [
       [
@@ -28,6 +32,15 @@
           "image": "./assets/logo-startup.png",
           "imageWidth": 200,
           "resizeMode": "contain"
+        }
+      ],
+      "expo-sharing",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow ChemSmileAI to save images.",
+          "savePhotosPermission": "Allow ChemSmileAI to save files.",
+          "isAccessMediaLocationEnabled": true
         }
       ]
     ],
