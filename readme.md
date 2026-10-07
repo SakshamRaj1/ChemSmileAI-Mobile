@@ -51,7 +51,7 @@ ChemSmileAI/
 ├── eas.json                     # EAS Cloud build profiles (preview APK, production AAB/IPA)
 ├── package.json                 # Dependency manifest
 └── README.md
-
+```
 
 🚀 Getting Started
 Prerequisites
