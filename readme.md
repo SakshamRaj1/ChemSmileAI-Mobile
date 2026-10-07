@@ -2,7 +2,6 @@
 
 <div align="center">
 
-![ChemSmileAI Logo](./assets/logo-startup.png)
 
 **Molecular Analysis and Similarity Search Engine**
 
