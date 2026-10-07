@@ -3,7 +3,7 @@
 <div align="center">
 
 
-**Molecular Analysis and Similarity Search Engine**
+**[Original Project is -> ChemSmileAI: a web app for Molecular Analysis and Similarity Search Engine](https://github.com/SakshamRaj1/ChemSmileAI)**
 
 *A computational cheminformatics platform designed for code-free chemical analysis, molecular property computation, and structural modification workflows.*
 
