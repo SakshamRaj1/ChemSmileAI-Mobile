@@ -53,72 +53,83 @@ ChemSmileAI/
 └── README.md
 ```
 
-🚀 Getting Started
-Prerequisites
-Node.js (v18 or LTS recommended)
+---
 
-npm or yarn
+## 🚀 Getting Started
 
-Expo Go application on your mobile device
+### Prerequisites
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Expo Go](https://expo.dev/go) application on your mobile device (optional, for local testing)
 
-1. Installation
+### 1. Installation
+
 Clone the repository and install dependencies:
 
-Bash
-git clone [https://github.com/SakshamRaj1/ChemSmileAI.git](https://github.com/SakshamRaj1/ChemSmileAI.git)
+```bash
+git clone https://github.com/sakshamraj1/ChemSmileAI.git
 cd ChemSmileAI
 npm install
-2. Local Development
+```
+
+### 2. Local Development
+
 Start the Metro bundler to run the project in development mode:
 
-Bash
+```bash
 npx expo start
-Open Expo Go on Android or the default Camera app on iOS.
+```
 
-Scan the QR code displayed in your terminal.
+- Open **Expo Go** on Android or the default **Camera app** on iOS.
+- Scan the QR code displayed in the terminal.
 
-⚙️ Configuration & Architecture Details
-Endpoint Configuration
-The target cheminformatics server URL and intro splash display time are configured at the top of App.js:
+---
 
-JavaScript
+## ⚙️ Configuration
+
+### Changing Target Endpoints
+The live chemical engine endpoint can be updated directly in `App.js`:
+
+```javascript
 // App.js
-const WEBSITE_URL = '[https://your-production-url.com/](https://your-production-url.com/)';
-const SPLASH_DURATION_MS = 2000;
-Native Download Handling
-Android's default WebView delegates file downloads containing Content-Disposition: attachment to the OS-level DownloadManager. Since the system manager runs outside the WebView sandbox, it lacks active sessions, authentication, and custom tunnel headers, resulting in download failures.
+const WEBSITE_URL = 'https://your-production-url.com';
+const SPLASH_DURATION_MS = 2500;
+```
 
-ChemSmileAI Mobile resolves this completely at the client layer:
+### Asset & Icon Guidelines
+- **Splash Screen:** Handled by `expo-splash-screen` in `app.json` with a background tone of `#0b0909`.
+- **Adaptive Icons (Android):** To prevent unwanted cropping from Android's circular masking, ensure `App-logo.png` maintains a centered design footprint within the safe center zone of the image canvas.
 
-DOM Prototype Patching: Injects early JavaScript hooks before DOM load to intercept <form> submissions, clicked submit buttons, and <a> clicks.
+---
 
-In-Memory Streaming: Fetches generated molecular payloads directly via the browser context preserving active session headers and converts them to base64.
+## 📦 Cloud Builds with EAS
 
-Native Share Dialog: React Native writes the payload to FileSystem.cacheDirectory and presents the native Android/iOS share and save modal via Sharing.shareAsync.
+This project is configured for cloud compilation without local SDK dependencies.
 
-Adaptive Icon Safe Zone
-Android adaptive icons crop assets to circular or squircle masks with a diameter of ~66% of the full canvas. App-logo.png is placed centered with transparent padding on a #0b0909 background to eliminate border distortion.
-
-📦 Cloud Builds with EAS
-This project is configured for compilation in the cloud without Android Studio or Xcode.
-
-1. Install EAS CLI & Authenticate
-Bash
+### 1. Install EAS CLI & Authenticate
+```bash
 npm install -g eas-cli
 eas login
-2. Generate Standalone Android APK (Direct Install)
-Bash
+```
+
+### 2. Generate Standalone Android APK (Preview)
+```bash
 eas build -p android --profile preview
-Once compilation completes, EAS generates a direct .apk binary link ready for distribution and installation.
+```
+Once the build completes on the Expo build servers, EAS generates a direct `.apk` download link ready for distribution and installation.
 
-3. Generate Production Builds
-Android (AAB for Google Play):
+### 3. Generate Production Builds
+- **Android (AAB for Google Play):**
+  ```bash
+  eas build -p android --profile production
+  ```
+- **iOS (IPA for App Store / TestFlight):**
+  ```bash
+  eas build -p ios --profile production
+  ```
 
-Bash
-eas build -p android --profile production
-iOS (IPA for App Store / TestFlight):
+---
 
-Bash
-eas build -p ios --profile production
-📄 License
-This project is distributed under the terms of the MIT License. See the LICENSE file for more information.
+## 📄 License
+
+This project is distributed under the terms of the MIT License. See the [LICENSE](LICENSE) file for more information.
