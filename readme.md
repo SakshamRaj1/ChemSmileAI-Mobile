@@ -18,7 +18,7 @@
 
 Download the latest Android release directly:
 
-[![Download ChemSmileAI APK](https://img.shields.io/badge/Download-ChemSmileAI.apk-2563EB?style=for-the-badge&logo=android&logoColor=white)](https://github.com/SakshamRaj1/ChemSmileAI/releases/latest/download/ChemSmileAI.apk)
+[![Download ChemSmileAI APK](https://img.shields.io/badge/Download-ChemSmileAI.apk-2563EB?style=for-the-badge&logo=android&logoColor=white)](https://github.com/SakshamRaj1/ChemSmileAI-Mobile/releases/download/v1.0.0/ChemSmileAI.v1.0.0.apk)
 
 ---
 
